@@ -1,25 +1,63 @@
-import logo from './logo.svg';
+import React, { Component } from 'react'
+
+import {
+  BrowserRouter as Router, 
+  Route, 
+  Switch,
+} from 'react-router-dom';
+
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Header from './ContainerClasses/Header'
+import HomePage from './HomePage/HomePage'
+import LoginPage from './LoginPage/LoginPage'
+import SignUpPage from './SignUpPage/SignUpPage'
+import ToDoPage from './ToDoPage/ToDoPage'
+import PrivateRoute from "./ContainerClasses/PrivateRoute";
 
-export default App;
+
+export default class App extends Component {
+  state = { token: '' }
+
+  render() {
+    return (
+      <div>
+        <Router>
+          <Header />
+          <Switch>
+            <Route
+              path="/"
+              exact
+              render={(routerProps) =>
+                <HomePage {...routerProps}
+                />}
+            />
+            <Route
+              path="/login"
+              exact
+              render={(routerProps) =>
+                <LoginPage {...routerProps}
+                />}
+            />
+            <Route
+              path="/signup"
+              exact
+              render={(routerProps) =>
+                <SignUpPage {...routerProps}
+                />}
+            />
+            <PrivateRoute
+              path="/todos"
+              token='1'
+              exact
+              render={(routerProps) =>
+                <ToDoPage
+                  {...routerProps}
+                />}
+            />
+          </Switch>
+        </Router>
+      </div>
+    )
+  }
+}
