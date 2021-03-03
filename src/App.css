@@ -27,6 +27,7 @@ header div {
   font-family: 'Fascinate', cursive;
   color: #83401F;
   font-size: 3em;
+  line-height: 1em;
 }
 
 .header-container {
@@ -34,6 +35,13 @@ header div {
   justify-content: space-between;
   height: 100%;
   width: 100%;
+}
+
+.welcome-header {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  text-align: center;
 }
 
 .dodo-logo {
@@ -53,10 +61,6 @@ main {
 form {
   display: flex;
   flex-direction: column;
-}
-
-.welcome-message {
-  color: black;
 }
 
 .main-image {

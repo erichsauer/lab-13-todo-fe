@@ -14,8 +14,9 @@ export default class Header extends Component {
                             Sign Out
                         </button>
                     </div>
-                    : <div>
-                    Welcome To Dodo's To-Dos!
+                    : <div className='welcome-header'>
+                        Welcome To<br />
+                        Dodo's To-Dos!
                     </div>
                 }
             </header>
