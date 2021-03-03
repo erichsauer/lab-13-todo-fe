@@ -5,7 +5,7 @@ import { createNewUser } from '../utils/api-utils'
 export default class SignUpPage extends Component {
     state = {
         email: '',
-        password: '',
+        password: ''
     }
 
     handleEmail = e => this.setState({ email: e.target.value })
@@ -21,7 +21,6 @@ export default class SignUpPage extends Component {
 
     render() {
         const { email, password } = this.state
-        console.log(this.state);
         return (
             <main>
                 <Form

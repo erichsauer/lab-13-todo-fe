@@ -37,6 +37,7 @@ export default class App extends Component {
   }
 
   render() {
+    console.log(this.state.token);
     const { token } = this.state
     return (
       <div className='App'>
