@@ -12,7 +12,7 @@ export default class ToDoList extends Component {
                 handleClick={handleClick}
                 id={id}
             />)
-        const welcomeMessage = 'Nothing To Do!'
+        const welcomeMessage = 'Nothing To Dodo Yet'
         console.log(todos, mappedItems);
         return (
             <div
