@@ -2,12 +2,13 @@ import React, { Component } from 'react'
 
 export default class ToDoItem extends Component {
     render() {
-        const { className, item } = this.props
+        const { className, todo, handleClick, id } = this.props
         return (
             <p
                 className={className}
+                onClick={() => handleClick(id)}
             >
-                {item}
+                {todo}
             </p>
         )
     }

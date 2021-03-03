@@ -3,32 +3,24 @@ import ToDoItem from "./ToDoItem";
 
 export default class ToDoList extends Component {
     render() {
-        const todos = [
-            {
-            todo: 'wash the dishes',
-            completed: false,
-            user_id: 1
-            },
-            {
-            todo: 'walk the cat',
-            completed: true,
-            user_id: 1
-            },
-            {
-            todo: 'launder',
-            completed: false,
-            user_id: 1
-            }
-        ]
-        const mappedItems = todos.map(({ todo, completed }) => <ToDoItem
-            key={todo.todo}
-            className={completed && 'completed-item'}
-            item={todo}
-        />)
-
+        const { todos, handleClick } = this.props
+        const mappedItems = todos.length
+            && todos.map(({ todo, completed, id }) => <ToDoItem
+                key={`${todo}-${id}`}
+                className={completed ? 'completed-item' : ''}
+                todo={todo}
+                handleClick={handleClick}
+                id={id}
+            />)
+        const welcomeMessage = 'Nothing To Do!'
+        console.log(todos, mappedItems);
         return (
-            <div className='list-container'>
-                {mappedItems}
+            <div
+                className='list-container'
+            >
+                {mappedItems.length
+                    ? mappedItems
+                    : welcomeMessage}
             </div>
         )
     }

@@ -6,7 +6,7 @@ const PrivateRoute = ({ render: Component, ...rest }) => {
       // this route will only render if a token is present 
     <Route
       {...rest}
-      render={props => (rest.token ? <Component {...props} {...rest} /> : <Redirect to="/login" />)}
+      render={props => (rest.token ? <Component {...props} {...rest} /> : <Redirect to="/" />)}
     />
   )
 }
